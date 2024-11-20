@@ -5,9 +5,10 @@ buildscript {
   }
 }
 
-apply plugin: 'war'
-apply plugin: 'org.openapi.generator'
-
+plugins {
+id 'war'
+id 'org.openapi.generator'
+}
 // these options are needed due to use of interal JDK crypto implementation, such as sun.security.pkcs10.PKCS10
 compileJava {
     options.compilerArgs += ["-XDignore.symbol.file", "-Xdoclint:none", "-Xlint:none", "-nowarn"]
@@ -178,6 +179,7 @@ openApiGenerate {
           openApiNullable : "false",
           useJakartaEe: "true"
   ]
+validateSpec = false
 }
 
 compileJava.dependsOn tasks.openApiGenerate

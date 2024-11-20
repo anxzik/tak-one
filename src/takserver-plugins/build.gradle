@@ -19,8 +19,7 @@ publishing {
     }
 }
 dependencies {
-
-  api ("com.google.protobuf:protobuf-java:$protobuf_java_version") {
+  runtimeOnly  api ("com.google.protobuf:protobuf-java:$protobuf_java_version") {
     exclude group: 'javax.annotation'
     exclude group: 'javax.activation'
     exclude group: 'com.google.guava'
